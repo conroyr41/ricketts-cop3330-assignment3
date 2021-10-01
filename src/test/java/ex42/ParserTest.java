@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ParserTest
 {
     @Test
-    public void displayRecords_GivenAnyList_1()
+    public void displayRecords_GivenOneEntry_CorrectlyFormattedSingleEntryTable()
     {
         ArrayList<String> testList = new ArrayList<String>();
         testList.add("Ling");
@@ -21,8 +21,9 @@ public class ParserTest
         testList.add("55900");
 
         Parser parser = new Parser();
+        String testOutput = parser.displayRecords(testList);
+        String expectedOutput = String.format("%-15s%-15s%-15s\n------------------------------------\n%-15s%-15s%-15s\n", "Last", "First", "Salary","Ling","Mai","55900");
 
-        //"1" indicates successful completion of the method.
-        Assertions.assertEquals(1, parser.displayRecords(testList));
+        Assertions.assertEquals(expectedOutput, testOutput);
     }
 }

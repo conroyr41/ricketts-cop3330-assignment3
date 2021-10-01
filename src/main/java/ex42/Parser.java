@@ -9,7 +9,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Parser
@@ -18,36 +20,40 @@ public class Parser
     {
         File inputFile = new File("src/main/java/ex42/exercise42_input.txt");
         Scanner scInput = new Scanner(inputFile);
+        String output;
 
         ArrayList<String> records = new ArrayList<String>();
 
+        //split all entries of the input file into list elements
         while (scInput.hasNextLine())
         {
             String[] fields = scInput.nextLine().split(",");
-
-            for(String field : fields)
-                records.add(field);
+            records.addAll(Arrays.asList(fields));
         }
 
-        displayRecords(records);
+        //get the formatted table to display
+        output = displayRecords(records);
+
+        System.out.println(output);
     }
 
-    public static int displayRecords(ArrayList<String> listOfRecords)
+    public static String displayRecords(ArrayList<String> listOfRecords)
     {
         int iterations = 1;
-        System.out.format("%-15s%-15s%-15s\n------------------------------------\n", "Last", "First", "Salary");
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(String.format("%-15s%-15s%-15s\n------------------------------------\n", "Last", "First", "Salary"));
 
         for(String record : listOfRecords)
         {
-            System.out.format("%-15s", record);
+            stringBuilder.append(String.format("%-15s", record));
 
             if(iterations % 3 == 0)
-                System.out.format("\n");
+                stringBuilder.append("\n");
 
             iterations++;
         }
 
-        //"1" indicates successful completion.
-        return 1;
+        return stringBuilder.toString();
     }
 }
