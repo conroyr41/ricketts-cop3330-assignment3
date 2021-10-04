@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Practice Exercises in Java, Part 3" />
+        <module name="ricketts-cop3330-assignment3" />
       </profile>
     </annotationProcessing>
   </component>
