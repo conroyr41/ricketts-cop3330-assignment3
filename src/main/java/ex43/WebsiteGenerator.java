@@ -5,13 +5,10 @@
 
 package ex43;
 
-import javax.swing.text.html.CSS;
 import java.io.BufferedWriter;
 import java.io.*;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class WebsiteGenerator
