@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class WordFinder
+{
+    ~Scanner scan
+    ~String outName, result
+
+    +generateOutputFile(String): String
+}
+
+@enduml

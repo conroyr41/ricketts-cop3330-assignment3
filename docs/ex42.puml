@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Parser
+{
+    ~File inputFile
+    ~Scanner scInput
+    ~String output
+    ~ArrayList<String> records
+
+    +displayRecords(ArrayList<String>): String
+}
+
+@enduml

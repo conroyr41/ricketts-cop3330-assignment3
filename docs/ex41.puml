@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class NameSorter
+{
+    ~File inputFile
+    ~File outputFile
+    ~Scanner scInput
+    ~BufferedWriter bwOutput
+    ~ArrayList<String> names
+    ~ArrayList<String> namesSorted
+
+    +sortNames(ArrayList<String>): ArrayList<String>
+}
+
+@enduml

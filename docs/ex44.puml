@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ProductSearch
+{
+    ~Scanner scan
+    ~JSONObject myJSONObject
+    ~JSONArray myJSONArray
+    ~String output, productName
+    ~File file
+    ~Boolean foundProduct
+    ~int productIndex
+
+    +getProductData(JSONObject): String
+}
+
+@enduml

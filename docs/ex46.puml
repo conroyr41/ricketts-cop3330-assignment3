@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class WordFinder
+{
+    ~File inputFile
+    ~ArrayList<String> words
+    ~ArrayList<Integer> occurrencesOfWords
+
+    +getAllWords(File): ArrayList<String>
+    +getOccurrencesOfWords(File, ArrayList<String>): ArrayList<Integer>
+    +generateHistogram(ArrayList<String>, ArrayList<Integer>): String
+}
+
+@enduml
