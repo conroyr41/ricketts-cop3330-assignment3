@@ -18,6 +18,7 @@ public class ProductSearch
 {
     public static void main(String[] args) throws IOException
     {
+        //initialize/declare any necessary variables
         Scanner scan;
         JSONObject myJSONObject;
         JSONArray myJSONArray;
@@ -34,14 +35,17 @@ public class ProductSearch
         //wait for correct user input
         while(Objects.equals(productName, ""))
         {
+            //prompt for product name
             System.out.print("What is the product name? ");
             scan = new Scanner(System.in);
             productName = scan.next();
 
+            //for each JSON object
             for(int i = 0; i < myJSONArray.length(); i++)
             {
                 JSONObject product = myJSONArray.getJSONObject(i);
 
+                //attempt to find product
                 if(Objects.equals(product.get("name"), productName))
                 {
                     foundProduct = true;
@@ -49,6 +53,7 @@ public class ProductSearch
                 }
             }
 
+            //if product was not found, prompt for user input again
             if(!foundProduct)
             {
                 System.out.println("Sorry, that product was not found in our inventory.");
@@ -58,17 +63,22 @@ public class ProductSearch
 
         //get product information
         output = getProductData(myJSONArray.getJSONObject(productIndex));
+
+        //output product information
         System.out.print(output);
     }
 
     public static String getProductData(JSONObject theJSONObject)
     {
+        //initialize/declare any necessary variables
         StringBuilder stringBuilder = new StringBuilder();
 
+        //get product information
         stringBuilder.append(String.format("Name: %s\n", theJSONObject.get("name")));
         stringBuilder.append(String.format("Price: %.2f\n", theJSONObject.get("price")));
         stringBuilder.append(String.format("Quantity: %d\n", theJSONObject.get("quantity")));
 
+        //return output
         return stringBuilder.toString();
     }
 }
